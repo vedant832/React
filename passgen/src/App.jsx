@@ -35,7 +35,7 @@ function App() {
   const [password, setPassword] = useState("");
   const [length, setLength] = useState(8);
   const [includeSymbols, setIncludeSymbols] = useState(false);
-  const [includeNumbers, setIncludeNumbers] = useState(false); // New checkbox state
+  const [includeNumbers, setIncludeNumbers] = useState(false); 
 
   const handleGenerateClick = () => {
     const newPassword = genPassword(length, includeSymbols, includeNumbers); // Updated function call
@@ -43,8 +43,8 @@ function App() {
   };
 
   const handleCopyClick = () => {
-    // Implement copy to clipboard logic here
-    // You can use document.execCommand('copy') or other methods
+    navigator.clipboard.writeText(password);
+    
   };
 
   const handleSliderChange = (event) => {
