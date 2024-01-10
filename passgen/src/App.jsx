@@ -9,7 +9,13 @@ var num = "0123456789";
 
 function genPassword(length, includeSymbols, includeNumbers) {
   pass = ""; // Reset the password variable
+  if (length < 8) {
+    alert("Password length must be greater than 8 characters");
+    return;
+  }
   if (includeSymbols && includeNumbers) {
+
+
     for (var i = 0; i < length; i++) {
       pass += str.charAt(Math.floor(Math.random() * str.length));
       pass += sym.charAt(Math.floor(Math.random() * sym.length));
@@ -20,10 +26,16 @@ function genPassword(length, includeSymbols, includeNumbers) {
       pass += str.charAt(Math.floor(Math.random() * str.length));
       pass += sym.charAt(Math.floor(Math.random() * sym.length));
     }
-  } else {
+
+   } else if (includeNumbers) {
     for (var i = 0; i < length; i++) {
       pass += str.charAt(Math.floor(Math.random() * str.length));
       pass += num.charAt(Math.floor(Math.random() * num.length));
+    }
+   }
+   else {
+    for (var i = 0; i < length; i++) {
+      pass += str.charAt(Math.floor(Math.random() * str.length));
     }
   }
 
